@@ -5,10 +5,34 @@ import {
     SEARCH_MOVIES_ENDPOINT,
 } from '../constants';
 
+/**
+ * Search result
+ * @typedef {{poster_path: string, adult: boolean, overview: string, release_date: string, id: number}} SearchResult
+ */
 
-export const discoverMovies = (popularity = 'popularity.desc') => 
-    client.get(`${DISCOVER_MOVIES_ENDPOINT}?sort_by=${popularity}`)
+
+/**
+ * Search metadata
+ * @typedef {Object} SearchMetadata
+ * @property {number} page - page
+ * @property {SearchResult[]} results - search results
+ */
+
+/**
+ * 
+ * @param {string} sortBy - Sort param
+ * @returns {SearchMetadata} - Search Metadata
+ */
+
+export const discoverMovies = (sortBy = 'popularity.desc') => 
+    client.get(`${DISCOVER_MOVIES_ENDPOINT}?sort_by=${sortBy}`)
         .then(response => response.data);
+
+/**
+ * 
+ * @param {string} query - Query param
+ * @returns {Result} - Result
+ */
 
 export const searchMovies = (query = '') => 
     client.get(`${SEARCH_MOVIES_ENDPOINT}?query=${query}`)
