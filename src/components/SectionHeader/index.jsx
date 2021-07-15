@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Styled from 'styled-components';
-import { FaFire } from 'react-icons/fa';
 
 const StyledParagraph = Styled.p`
     font-family: 'Roboto';
@@ -13,14 +12,15 @@ const StyledContainer = Styled.div`
 
 const StyledIconContainer = Styled.div`
     align-self: center;
+
+    margin: 0 10px;
 `;
 
-
-export const SectionHeader = ({ title, iconSrc }) => {
+export const SectionHeader = ({ title, children }) => {
     return (
         <StyledContainer>
             <StyledIconContainer>
-                <FaFire />
+                {children}
             </StyledIconContainer>
             <StyledParagraph>
                 {title}
@@ -31,5 +31,5 @@ export const SectionHeader = ({ title, iconSrc }) => {
 
 SectionHeader.propTypes = {
     title: PropTypes.string.isRequired,
-    iconSrc: PropTypes.string.isRequired,
+    children: PropTypes.any,
 };
