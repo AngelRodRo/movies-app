@@ -1,5 +1,6 @@
 import React from 'react';
 import Styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledInput = Styled.input`
     -webkit-appearance: none;
@@ -27,3 +28,9 @@ export const SearchInput = ({
         />
     )
 };
+
+SearchInput.propTypes = {
+    value: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
+    onChange: PropTypes.func,
+}

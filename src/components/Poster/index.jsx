@@ -1,5 +1,6 @@
 import React from 'react';
 import Styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledPoster = Styled.div`
     width: 200px;
@@ -20,4 +21,10 @@ export const Poster = ({
         />
     );
 };
+
+Poster.propTypes = {
+    src: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
+};
+
 
