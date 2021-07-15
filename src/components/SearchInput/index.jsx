@@ -12,16 +12,18 @@ const StyledInput = Styled.input`
     width: 400px;
 
     font-style: italic;
-
-    &:before {
-        content: 'x';
-    }
 `;
 
-export const SearchInput = ({ placeholder = 'Seach for a movie...' }) => {
+export const SearchInput = ({
+    value,
+    placeholder = 'Seach for a movie...',
+    onChange = () => {},
+}) => {
     return (
-        <div>
-            <StyledInput placeholder={placeholder} />
-        </div>
+        <StyledInput
+            value={value}
+            placeholder={placeholder}
+            onChange={onChange}
+        />
     )
 };
