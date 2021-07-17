@@ -3,7 +3,8 @@ import Styled from 'styled-components';
 
 const StyledContainer = Styled.div`
     display: flex;
-
+    position: absolute;
+    margin: 0 20px;
 `;
 
 const StyledLeftContainer = Styled.div`
@@ -11,6 +12,7 @@ const StyledLeftContainer = Styled.div`
 
 const StyledRightContainer = Styled.div`
     display: flex;
+
 `;
 
 export const Navbar = () => {
