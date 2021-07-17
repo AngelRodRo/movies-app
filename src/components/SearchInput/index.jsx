@@ -10,7 +10,8 @@ const StyledInput = Styled.input`
     border-radius: 20px;
     padding: 10px 15px;
 
-    width: 400px;
+    min-width: 400px;
+    height: 20px;
 
     font-style: italic;
 `;
