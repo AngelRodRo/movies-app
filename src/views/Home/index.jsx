@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Styled from 'styled-components';
 import { useHistory } from 'react-router';
 
@@ -7,7 +7,8 @@ import { SearchInput } from 'components/SearchInput';
 const MainSection = Styled.div`
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 250px);
+
 
     padding-top: 250px;
 
@@ -25,8 +26,12 @@ const Home = () => {
 
     const ENTER_KEY = 13;
 
+    useEffect(() => {
+        document.title = "Search for your favorite movies!"
+    }, []);
+
     const search = async () => {
-        history.push(`/search?q=${query}`);
+        history.push(`/search${query? `?q=${query}` : ''}`);
     };
 
     const startSearch = (event) => {
