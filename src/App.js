@@ -8,6 +8,7 @@ import {
 import Layout from './layout';
 import Home from './views/Home';
 import Search from './views/Search';
+import Movie from './views/Movie';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
             </Route>
             <Route path="/search">
               <Search />
+            </Route>
+            <Route path="/movies/:id">
+              <Movie />
             </Route>
           </Switch>
         </Router>
