@@ -7,19 +7,23 @@ import {
 
 import Layout from './layout';
 import Home from './views/Home';
+import Search from './views/Search';
 
 function App() {
   return (
-    <Router>
-      <Layout>
-        <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Layout>
-    </Router>
+    <Layout>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/search">
+              <Search />
+            </Route>
+          </Switch>
+        </Router>
+    </Layout>
   );
-}
+};
 
 export default App;
