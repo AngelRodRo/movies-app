@@ -12,7 +12,17 @@ const StyledLeftContainer = Styled.div`
 
 const StyledRightContainer = Styled.div`
     display: flex;
+`;
 
+const StyledButton = Styled.a`
+    background: none;
+    outline: none;
+
+    color: white;
+
+    margin: 10px;
+
+    cursor: pointer;
 `;
 
 export const Navbar = () => {
@@ -22,8 +32,8 @@ export const Navbar = () => {
                 <img />
             </StyledLeftContainer>
             <StyledRightContainer>
-                <button>Login</button>
-                <button>Sign up</button>
+                <StyledButton>Login</StyledButton>
+                <StyledButton>Sign up</StyledButton>
             </StyledRightContainer>
         </StyledContainer>
     )
