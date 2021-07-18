@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -8,24 +8,27 @@ const StyledPoster = Styled.div`
 
     background: url('${props => props.src}');
     background-position: center;
+
+    cursor: ${props => props.isClickable? 'pointer' : 'initial'};
 `;
 
-export const Poster = ({
+export const Poster = memo(({
     src,
-    onClick
+    ...rest
 }) => {
     const fullPath = `https://image.tmdb.org/t/p/w300${src}`;
     return (
         <StyledPoster
-            onClick={onClick}
             src={fullPath}
+            {...rest}
         />
     );
-};
+});
 
 Poster.propTypes = {
     src: PropTypes.string.isRequired,
     onClick: PropTypes.func,
+    isClickable: PropTypes.bool,
 };
 
 
