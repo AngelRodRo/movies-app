@@ -8,6 +8,8 @@ import {
     StyledRating,
     StyledContainer,
     StyledSearchContainer,
+    StyledTitle,
+    StyledRatingContainer,
 } from './styles';
 
 import {
@@ -23,6 +25,7 @@ export default function Search() {
     const query = useQuery();
     const history = useHistory();
 
+    const [isSearched, setIsSearched] = useState(false);
     const [stars, setStars] = useState(0);
     const [results, setResults] = useState([]);
     const [filteredResults, setFilteredResults] = useState([]);
@@ -41,6 +44,8 @@ export default function Search() {
 
         const doSearch = async () => {
             try {
+                setIsSearched(true);
+
                 const response = await searchMovies(searchQuery);
                 setResults(response.results);
                 setFilteredResults(response.results);
@@ -90,14 +95,25 @@ export default function Search() {
                     value={searchQuery}
                     onChange={handleChange}
                 />
-                <StyledRating
-                    stars={stars}
-                    onRated={handleRated}
-                />
+                <StyledRatingContainer>
+                    <StyledRating
+                        stars={stars}
+                        onRated={handleRated}
+                    />
+                </StyledRatingContainer>
             </StyledSearchContainer>
+
+            {
+                searchQuery === '' ?
+                    <StyledTitle>Ultimas recomendaciones : </StyledTitle> :
+                    <StyledTitle>Lista de resultados : </StyledTitle>
+            }
+
             <StyledList>
                 {
-                    moviesListView
+                    results.length > 0 ?
+                        moviesListView :
+                        isSearched && <StyledTitle>No se encuentra resultados</StyledTitle>
                 }
             </StyledList>
         </StyledContainer>

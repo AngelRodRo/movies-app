@@ -24,6 +24,7 @@ export const StyledContainer = Styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
 `;
 
 export const StyledSearchContainer = Styled.div`
@@ -38,4 +39,13 @@ export const StyledSearchContainer = Styled.div`
 
 export const StyledRating = Styled(Rating)`
     margin: 50px 0;
+`;
+
+export const StyledTitle = Styled.h1`
+    color: white;
+    text-align: left;
+`;
+
+export const StyledRatingContainer = Styled.div`
+    margin-top: 20px;
 `;
