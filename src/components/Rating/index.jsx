@@ -7,7 +7,10 @@ const StyledStar = Styled.span`
     cursor: pointer;
 `;
 
-export const Rating = ({ stars, onRated }) => {
+export const Rating = ({
+    stars = 0,
+    onRated
+}) => {
     const [value, setValue] = useState(stars);
     const [dynamicValue, setDinamycValue] = useState(stars);
 
