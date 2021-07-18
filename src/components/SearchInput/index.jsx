@@ -1,8 +1,7 @@
-import React from 'react';
 import Styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const StyledInput = Styled.input`
+export const SearchInput = Styled.input`
     -webkit-appearance: none;
     outline: none;
 
@@ -16,19 +15,6 @@ const StyledInput = Styled.input`
     font-style: italic;
 `;
 
-export const SearchInput = ({
-    value,
-    placeholder = 'Seach for a movie...',
-    onChange = () => {},
-}) => {
-    return (
-        <StyledInput
-            value={value}
-            placeholder={placeholder}
-            onChange={onChange}
-        />
-    )
-};
 
 SearchInput.propTypes = {
     value: PropTypes.string.isRequired,
