@@ -25,6 +25,7 @@ export default function Search() {
 
     const [stars, setStars] = useState(0);
     const [results, setResults] = useState([]);
+    const [filteredResults, setFilteredResults] = useState([]);
     const [searchQuery, setSearchQuery] = useState(query.get('q') || '');
 
     useEffect(() => {
@@ -32,6 +33,7 @@ export default function Search() {
             try {
                 const response = await discoverMovies();
                 setResults(response.results);
+                setFilteredResults(response.results);
             } catch (error) {
 
             }
@@ -41,6 +43,7 @@ export default function Search() {
             try {
                 const response = await searchMovies(searchQuery);
                 setResults(response.results);
+                setFilteredResults(response.results);
             } catch (error) {
 
             }
@@ -52,6 +55,11 @@ export default function Search() {
             doSearch();
         }
     }, [searchQuery]);
+
+    useEffect(() => {
+        const newResults = filteredResults.filter(result => (stars * 2) - 2 <= result.vote_average && result.vote_average <= (stars * 2));
+        setResults(newResults);
+    }, [stars]); // eslint-disable-line
 
     const moviesListView = results.map(result =>
         <StyledPoster
