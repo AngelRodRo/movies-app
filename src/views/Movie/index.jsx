@@ -19,7 +19,7 @@ const StyledContainer = Styled.div`
 
     padding: 50px 100px;
 
-    height: 100vh;
+    height: calc(100vh - 100px);
 `;
 
 const StyledPosterContainer = Styled.div`
@@ -72,12 +72,15 @@ export default function Movie() {
                     {original_title}
                 </h1>
                 <div>
+                    <p>Overview: </p>
                     {overview}
                 </div>
                 <div>
+                    <p>Release : </p>
                     {releaseDate}
                 </div>
                 <div>
+                    <p>Status : </p>
                     {status}
                 </div>
             </StyledDetailsContainer>
