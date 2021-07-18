@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import Styled from 'styled-components';
-
 import { useHistory, useLocation } from 'react-router-dom';
 
 import { SearchInput } from 'components/SearchInput';
-import { Poster } from 'components/Poster';
-
 import {
-    BG_COLOR,
-} from 'constants/colors';
+    StyledList,
+    StyledPoster,
+    StyledRating,
+    StyledContainer,
+    StyledSearchContainer,
+} from './styles';
 
 import {
     discoverMovies,
@@ -19,31 +19,11 @@ function useQuery() {
     return new URLSearchParams(useLocation().search);
 };
 
-const StyledList = Styled.div`
-    display: flex;
-    flex-flow: wrap;
-
-    justify-content: center;
-`;
-
-const StyledPoster = Styled(Poster)`
-    margin: 10px;
-`;
-
-const StyledContainer = Styled.div`
-    background: ${BG_COLOR};
-`;
-
-const StyledSearchContainer = Styled.div`
-    display: flex;
-    justify-content: center;
-    padding: 50px 0;
-`;
-
 export default function Search() {
     const query = useQuery();
     const history = useHistory();
 
+    const [stars, setStars] = useState(0);
     const [results, setResults] = useState([]);
     const [searchQuery, setSearchQuery] = useState(query.get('q') || '');
 
@@ -90,6 +70,10 @@ export default function Search() {
         setSearchQuery(e.target.value);
     };
 
+    const handleRated = (newStars) => {
+        setStars(newStars);
+    };
+
     return (
         <StyledContainer>
             <StyledSearchContainer>
@@ -97,6 +81,10 @@ export default function Search() {
                     placeholder="Search for a movie ..."
                     value={searchQuery}
                     onChange={handleChange}
+                />
+                <StyledRating
+                    stars={stars}
+                    onRated={handleRated}
                 />
             </StyledSearchContainer>
             <StyledList>
