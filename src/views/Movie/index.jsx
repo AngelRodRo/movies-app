@@ -51,6 +51,7 @@ export default function Movie() {
             try {
                 const result = await getMovieDetails(id);
                 setMovie(result);
+                document.title = `Movies app - ${result.title}`;
             } catch (error) {
 
             }

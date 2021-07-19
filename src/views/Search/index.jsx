@@ -32,6 +32,10 @@ export default function Search() {
     const [searchQuery, setSearchQuery] = useState(query.get('q') || '');
 
     useEffect(() => {
+        document.title = "Search for your favorite movies!"
+    }, []);
+
+    useEffect(() => {
         const doDiscoverMovies = async () => {
             try {
                 const response = await discoverMovies();
