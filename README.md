@@ -31,6 +31,11 @@ if you can test components isolated run:
 npm run storybook
 ```
 
+## 🤖 Next Steps
+
+- Add error handlers to verify error status code as 500, 503 and so on, and show a error message.
+- Show loader animation for searching and page loads.
+
 ## ❗ Issues
 
 Please make sure to read the [Issue Reporting Checklist]() before opening an issue. Issues not conforming to the guidelines may be closed immediately.
