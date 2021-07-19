@@ -36,6 +36,8 @@ npm run storybook
 - Add error handlers to verify error status code as 500, 503 and so on, and show a error message.
 - Show loader animation for searching and page loads.
 - Improve responsive design on some pages.
+- Add lazy loading for images.
+- Improve images size and its load time.
 
 ## ❗ Issues
 
