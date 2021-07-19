@@ -29,7 +29,6 @@ export const Navbar = () => {
     return (
         <StyledContainer>
             <StyledLeftContainer>
-                <img />
             </StyledLeftContainer>
             <StyledRightContainer>
                 <StyledButton>Login</StyledButton>

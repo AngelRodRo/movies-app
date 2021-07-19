@@ -51,8 +51,6 @@ You can get in touch with **Codenity** community in the following ways:
 - Open a GitHub issue in this repository.
 - Email the maintainers at codenity.org@gmail.com.
 
-
-
 ## 📄 License
 
 Helpet is MIT licensed, as found in the [LICENSE][l] file.
